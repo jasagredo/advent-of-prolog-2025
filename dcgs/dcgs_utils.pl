@@ -1,4 +1,4 @@
-:- module(dcgs_utils, [lines//1, eol//0, eos/2, number//1]).
+:- module(dcgs_utils, [lines//1, eol//0, eos/2, number//1, numberC//1]).
 
 :- use_module(library(dcgs)).
 :- use_module(library(charsio)).
@@ -18,3 +18,7 @@ eos([], []).
 number(X) --> number([], X).
 number(X, Z) --> [C], { char_type(C, numeric) }, number([C|X], Z).
 number(X, Z) --> { length(X, L), L #> 0, reverse(X, X1), number_chars(Z, X1) }.
+
+numberC(X) --> numberC([], X).
+numberC(X, Z) --> [C], { char_type(C, numeric) }, numberC([C|X], Z).
+numberC(X, Z) --> { length(X, L), L #> 0, reverse(X, Z) }.
