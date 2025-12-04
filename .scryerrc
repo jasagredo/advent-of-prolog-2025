@@ -5,3 +5,5 @@
 :- use_module(library(clpz)).
 :- use_module(library(time)).
 :- use_module(library(between)).
+:- use_module(library(assoc)).
+:- use_module(library(reif)).
